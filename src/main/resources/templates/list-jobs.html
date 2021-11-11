@@ -12,6 +12,23 @@
 
     <!-- TODO #1 - Use a loop to display job results in a table. -->
 
+
+<!--for each job passed in from the controller, add it to a table with each job it it's
+    own table -->
+
+    <table class="job-listing">
+        <ol th:each="job : ${jobs}">
+            <ul th:text="${'ID: ' + job.id}"></ul>
+            <ul th:text="${'Name: ' + job.name}"></ul>
+            <ul th:text="${'Employer: ' + job.employer}"></ul>
+            <ul th:text="${'Location: ' + job.location}"></ul>
+            <ul th:text="${'Position Type: ' + job.positionType}"></ul>
+            <ul th:text="${'Skill: ' + job.coreCompetency}"></ul>
+
+
+        </ol>
+    </table>
+
 </div>
 
 </body>

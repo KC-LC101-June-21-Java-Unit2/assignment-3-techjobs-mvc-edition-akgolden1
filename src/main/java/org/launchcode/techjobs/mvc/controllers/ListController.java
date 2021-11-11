@@ -29,6 +29,8 @@ public class ListController {
         columnChoices.put("positionType", "Position Type");
         columnChoices.put("coreCompetency", "Skill");
 
+//        tableChoices.put("all", JobData.findAll()); Puts all job data under wrong heading
+// tableChoices.put("all", "<th:href='list-jobs'>");
         tableChoices.put("employer", JobData.getAllEmployers());
         tableChoices.put("location", JobData.getAllLocations());
         tableChoices.put("positionType", JobData.getAllPositionTypes());
@@ -37,6 +39,7 @@ public class ListController {
 
     @GetMapping(value = "")
     public String list(Model model) {
+
         model.addAttribute("columns", columnChoices);
         model.addAttribute("tableChoices", tableChoices);
         model.addAttribute("employers", JobData.getAllEmployers());
@@ -61,4 +64,9 @@ public class ListController {
 
         return "list-jobs";
     }
+
+//    @RequestMapping ("/list-jobs")
+//    public String listJobs(){
+//        return "list-jobs";
+   // }
 }

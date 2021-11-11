@@ -18,15 +18,28 @@
                 </th:block>
             </tr>
             <tr>
-                <!-- TODO #2: Complete the View Jobs By Category Table. -->
 
-                <td></td> <!-- Feel free to remove or modify this element if necessary. -->
+
+               <!-- Feel free to remove or modify this element if necessary. -->
+<!--                Remember that I made this way too complicated and ignored the TO DO-->
+                <td> <a th:href = "@{/list/jobs(column=all)}">All</a>
+                </td>
+               <!--hashmap from JobChoices with employer, location, etc as keys. Values are arraylists of Employer, etc. objects-->
+               <!-- category is one key/value pait from tableChoices-->
+<!--                try adding a link here and updating the controller-->
 
                 <td th:each="category : ${tableChoices}">
+
                     <ul>
+<!--                        // for category= all, add the link tmy list-jobs.html page-->
+<!--                    for each item in category-->
                         <li th:each="item : ${category.value}">
+<!--                            <a th:href="@{list-jobs}">all</a>-->
+<!--                            //sets the query parameters for column=and value= -->
+<!--                            //the keys will be employer, location, etc. THe values wil be the individual elements from the related arraylist-->
+<!--                            //when the user clicks on these links, they are routed to the ListJobsByColumnAndValue handler in ListController, which looks for the params.-->
                             <a th:href="@{/list/jobs(column=${category.key},value=${item})}" th:text="${item}"></a>
-                        </li>
+                                    </li>
                     </ul>
                 </td>
             </tr>
